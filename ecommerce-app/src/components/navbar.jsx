@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -22,19 +23,19 @@ function Navbar() {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">
+                <Link class="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/product-menu">
+                <Link class="nav-link" to="/product-menu">
                   Products
-                </a>
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/cart">
+                <Link class="nav-link" to="/cart">
                   Cart
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

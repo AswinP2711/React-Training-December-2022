@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
+
 function ProductMenu() {
   const products = [
     {
@@ -74,12 +75,23 @@ function ProductMenu() {
 
   const handleClose = () => setShow(false);
 
+  useEffect(()=>{
+    return ()=>{
+      console.log("ComponentWillUnmount");
+    }
+  },[])
+
   const handleShow = () => {
     setShow(true);
   };
 
   const handleAddToCart = () => {
     setShow(false);
+    if (cart.some(item=>item.id === selectedProduct.id)) {
+      alert("Item already added in cart!!!")
+    }else{
+      setCart([...cart,selectedProduct]);
+    }
   };
  
   const removeFromCart = (productId) =>{
@@ -151,7 +163,6 @@ function ProductMenu() {
           <Button
             variant="primary"
             onClick={() => {
-              setCart(cart.concat(selectedProduct));
               handleAddToCart();
             }}
           >
@@ -181,7 +192,7 @@ function ProductMenu() {
                 <Card.Text>Amount : {item.Amount}</Card.Text>
                 <Card.Title>Total Amount : {item.Amount * item.Quantity}</Card.Title>
                 <Button
-                  variant="primary"
+                  variant="danger"
                   onClick={() => {
                     removeFromCart(item.id)
                   }}
@@ -189,7 +200,7 @@ function ProductMenu() {
                   Remove
                 </Button><span>    </span>
                 <Button
-                  variant="primary"
+                  variant="warning"
                   onClick={() => {
                     incrementQuantity(item.id)
                   }}
@@ -197,7 +208,7 @@ function ProductMenu() {
                   +
                 </Button><span>    </span>
                 <Button
-                  variant="primary"
+                  variant="warning"
                   onClick={() => {
                     decrementQuantity(item.id)
                   }}

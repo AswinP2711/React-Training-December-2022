@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-function Cart(props) {
+function Cart() {
     return ( 
         <Fragment>
             <h1>Cart</h1>
