@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { productContext } from "./ProductContext";
+import ProductContext from "./ProductContext";
 
 
 
@@ -25,7 +25,7 @@ function ProductMenu() {
     removeFromCart,
     incrementQuantity,
     decrementQuantity
-  } = React.useContext(productContext); 
+  } = React.useContext(ProductContext); 
 
   return (
     <Fragment>

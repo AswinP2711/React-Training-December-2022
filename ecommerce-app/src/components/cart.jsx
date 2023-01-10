@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-import { productContext } from "./ProductContext";
+import ProductContext from "./ProductContext";
 
 function Cart() {
   const {
@@ -20,7 +20,7 @@ function Cart() {
     removeFromCart,
     incrementQuantity,
     decrementQuantity,
-  } = React.useContext(productContext);
+  } = React.useContext(ProductContext);
 
   return (
     <Fragment>
